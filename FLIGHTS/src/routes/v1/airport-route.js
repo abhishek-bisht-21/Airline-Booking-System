@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { AirportController } = require('../../controllers');
-// const { AirportMiddlewares } = require('../../middleware'); // Uncomment if you add validation
+const { AirportMiddlewares } = require('../../middleware'); // Uncomment if you add validation
 
 // /api/v1/airports POST
-router.post('/', /* AirportMiddlewares.validateCreateRequest, */ AirportController.createAirport);
+router.post('/', 
+    AirportMiddlewares.validateCreateRequest,
+    AirportController.createAirport);
 
 // /api/v1/airports GET
 router.get('/', AirportController.getAirports);

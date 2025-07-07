@@ -2,7 +2,11 @@ const AirportService = require('../services/airport-service');
 const { StatusCodes } = require('http-status-codes');
 const { SuccessResponse, ErrorResponse } = require('../utils/common');
 
-// POST /airports
+/**
+ * POST : /airports 
+ * req-body {name: 'IGI', cityId: 5, code: 'DEL'}
+ */
+
 async function createAirport(req, res) {
     try {
         const airport = await AirportService.createAirport({
